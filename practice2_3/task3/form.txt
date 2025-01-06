@@ -1,0 +1,27 @@
+function createGoogleForm() {
+  // Створення нової форми
+  var form = FormApp.create("Форма збору даних");
+
+  // Додавання поля для імені
+  form.addTextItem()
+      .setTitle("Ім'я")
+      .setRequired(true);
+
+  // Додавання поля для дати
+  form.addDateItem()
+      .setTitle("Дата")
+      .setRequired(true);
+
+  // Додавання поля для вибору відділу
+  form.addMultipleChoiceItem()
+      .setTitle("Відділ")
+      .setChoiceValues(["Відділ 1", "Відділ 2", "Відділ 3"])
+      .showOtherOption(true)
+      .setRequired(true);
+
+  // Вивід URL форми в консоль
+  Logger.log("URL форми: " + form.getPublishedUrl());
+}
+
+
+https://forms.gle/aDZjMSwcHNudWF1b8
