@@ -1,0 +1,16 @@
+CREATE TABLE Personnel (
+        ID INT PRIMARY KEY,
+        Name VARCHAR(100),
+        Role VARCHAR(100),
+        Communication_Unit_ID INT,
+        Data_Assigned DATE
+);
+
+     );
+
+     CREATE TABLE Units (
+        Units_ID INT PRIMARY KEY,
+        Units_Name VARCHAR(100),
+        Base_Location VARCHAR(100),
+        Equipment_Available VARCHAR(100)
+     );
