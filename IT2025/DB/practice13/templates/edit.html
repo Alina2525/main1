@@ -1,22 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Engagement</title>
+    <title>Редагувати зіткнення</title>
 </head>
 <body>
-    <h1>Edit Engagement</h1>
+    <h1>Редагувати зіткнення</h1>
     <form method="POST">
-        <label>Date:</label><input type="date" name="Date" value="{{ record[1] }}" required><br>
-        <label>Location:</label><input type="text" name="Location" value="{{ record[2] }}" required><br>
-        <label>Enemy Losses:</label><input type="number" name="EnemyLosses" value="{{ record[3] }}" required><br>
-        <label>Friendly Losses:</label><input type="number" name="FriendlyLosses" value="{{ record[4] }}" required><br>
-        <label>Outcome:</label><input type="text" name="Outcome" value="{{ record[5] }}" required><br>
-        <button type="submit">Update</button>
+        <label for="date">Дата:</label>
+        <input type="date" id="date" name="date" value="{{ engagement[1] }}" required><br>
+
+        <label for="location">Локація:</label>
+        <input type="text" id="location" name="location" value="{{ engagement[2] }}" required><br>
+
+        <label for="enemy_losses">Втрати ворога:</label>
+        <input type="number" id="enemy_losses" name="enemy_losses" value="{{ engagement[3] }}" required><br>
+
+        <label for="friendly_losses">Втрати свої:</label>
+        <input type="number" id="friendly_losses" name="friendly_losses" value="{{ engagement[4] }}" required><br>
+
+        <label for="outcome">Результат:</label>
+        <input type="text" id="outcome" name="outcome" value="{{ engagement[5] }}" required><br>
+
+        <button type="submit">Оновити</button>
     </form>
+    <a href="{{ url_for('index') }}">Назад</a>
 </body>
 </html>
-
-
-        

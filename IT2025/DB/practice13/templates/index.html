@@ -3,32 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Records</title>
+    <title>Зіткнення</title>
 </head>
 <body>
-    <h1>Engagement</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Location</th>
-                <th>Enemy Losses</th>
-                <th>Friendly Losses</th>
-                <th>Outcome</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for record in records %}
-                <tr>
-                    <td>{{ record[0] }}</td>
-                    <td>{{ record[1] }}</td>
-                    <td>{{ record[2] }}</td>
-                    <td>{{ record[3] }}</td>
-                    <td>{{ record[4] }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
+    <h1>Зіткнення</h1>
+    <a href="{{ url_for('add_engagement') }}">Додати нове зіткнення</a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Дата</th>
+            <th>Локація</th>
+            <th>Втрати ворога</th>
+            <th>Втрати свої</th>
+            <th>Результат</th>
+            <th>Операції</th>
+        </tr>
+        {% for engagement in engagements %}
+        <tr>
+            <td>{{ engagement[0] }}</td>
+            <td>{{ engagement[1] }}</td>
+            <td>{{ engagement[2] }}</td>
+            <td>{{ engagement[3] }}</td>
+            <td>{{ engagement[4] }}</td>
+            <td>{{ engagement[5] }}</td>
+            <td>
+                <a href="{{ url_for('edit_engagement', id=engagement[0]) }}">Редагувати</a>
+                <form method="POST" action="{{ url_for('delete_engagement', id=engagement[0]) }}" style="display:inline;">
+                    <button type="submit" onclick="return confirm('Ви впевнені, що хочете видалити цей запис?')">Видалити</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
     </table>
 </body>
 </html>
-

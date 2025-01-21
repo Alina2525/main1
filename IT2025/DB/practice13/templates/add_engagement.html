@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Додати зіткнення</title>
+</head>
+<body>
+    <h1>Додати нове зіткнення</h1>
+    <form method="POST">
+        <label for="date">Дата:</label>
+        <input type="date" id="date" name="date" required><br>
+
+        <label for="location">Локація:</label>
+        <input type="text" id="location" name="location" required><br>
+
+        <label for="enemy_losses">Втрати ворога:</label>
+        <input type="number" id="enemy_losses" name="enemy_losses" required><br>
+
+        <label for="friendly_losses">Втрати свої:</label>
+        <input type="number" id="friendly_losses" name="friendly_losses" required><br>
+
+        <label for="outcome">Результат:</label>
+        <input type="text" id="outcome" name="outcome" required><br>
+
+        <button type="submit">Додати</button>
+    </form>
+    <a href="{{ url_for('index') }}">Назад</a>
+</body>
+</html>

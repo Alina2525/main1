@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Engagement</title>
+    <title>Create Record</title>
 </head>
 <body>
-    <h1>Create Engagement</h1>
-    <form method="POST">
+    <h1>Create New Record</h1>
+    <form action="{{ url_for('create') }}" method="POST">
         <label>Date:</label><input type="date" name="Date" required><br>
         <label>Location:</label><input type="text" name="Location" required><br>
         <label>EnemyLosses:</label><input type="number" name="EnemyLosses" required><br>
         <label>FriendlyLosses:</label><input type="number" name="FriendlyLosses" required><br>
         <label>Outcome:</label><input type="text" name="Outcome" required><br>
         <button type="submit">Submit</button>
-    </form>
-</body>
-</html>
+        /form>
+        <a href="{{ url_for('index') }}">Back to Home</a>
+    </body>
+    </html>
