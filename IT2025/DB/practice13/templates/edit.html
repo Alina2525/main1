@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Engagement</title>
+</head>
+<body>
+    <h1>Edit Engagement</h1>
+    <form method="POST">
+        <label>Date:</label><input type="date" name="Date" value="{{ record[1] }}" required><br>
+        <label>Location:</label><input type="text" name="Location" value="{{ record[2] }}" required><br>
+        <label>Enemy Losses:</label><input type="number" name="EnemyLosses" value="{{ record[3] }}" required><br>
+        <label>Friendly Losses:</label><input type="number" name="FriendlyLosses" value="{{ record[4] }}" required><br>
+        <label>Outcome:</label><input type="text" name="Outcome" value="{{ record[5] }}" required><br>
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>
+
+
+        
