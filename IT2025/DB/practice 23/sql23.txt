@@ -1,0 +1,48 @@
+CREATE DATABASE managementeducationalactivities;
+
+-- Таблиця "Курси"
+CREATE TABLE Courses (
+    CourseID SERIAL PRIMARY KEY,
+    CourseName VARCHAR(255) NOT NULL,
+    Description TEXT,
+    StartDate DATE NOT NULL,
+    EndDate DATE NOT NULL
+);
+
+-- Таблиця "Слухачі"
+CREATE TABLE Students (
+    StudentID SERIAL PRIMARY KEY,
+    FirstName VARCHAR(255) NOT NULL,
+    LastName VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) UNIQUE NOT NULL,
+    PhoneNumber VARCHAR(20)
+);
+
+-- Таблиця "Інструктори"
+CREATE TABLE Instructors (
+    InstructorID SERIAL PRIMARY KEY,
+    FirstName VARCHAR(255) NOT NULL,
+    LastName VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) UNIQUE NOT NULL,
+    Expertise VARCHAR(255)
+);
+
+-- Таблиця зв'язку "Курси-Слухачі" (Багато-до-багатьох)
+CREATE TABLE CourseStudent (
+    CourseID INT,
+    StudentID INT,
+    EnrollmentDate DATE NOT NULL,
+    PRIMARY KEY (CourseID, StudentID),
+    FOREIGN KEY (CourseID) REFERENCES Courses(CourseID) ON DELETE CASCADE,
+    FOREIGN KEY (StudentID) REFERENCES Students(StudentID) ON DELETE CASCADE
+);
+
+-- Таблиця зв'язку "Курси-Інструктори" (Багато-до-багатьох)
+CREATE TABLE CourseInstructor (
+    CourseID INT,
+    InstructorID INT,
+    AssignmentDate DATE NOT NULL,
+    PRIMARY KEY (CourseID, InstructorID),
+    FOREIGN KEY (CourseID) REFERENCES Courses(CourseID) ON DELETE CASCADE,
+    FOREIGN KEY (InstructorID) REFERENCES Instructors(InstructorID) ON DELETE CASCADE
+);
