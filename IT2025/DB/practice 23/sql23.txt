@@ -46,3 +46,39 @@ CREATE TABLE CourseInstructor (
     FOREIGN KEY (CourseID) REFERENCES Courses(CourseID) ON DELETE CASCADE,
     FOREIGN KEY (InstructorID) REFERENCES Instructors(InstructorID) ON DELETE CASCADE
 );
+-- Заповнення таблиці "Курси"
+INSERT INTO Courses (CourseName, Description, StartDate, EndDate)
+VALUES
+('Основи програмування', 'Курс для початківців про базові концепції програмування', '2025-02-01', '2025-03-01'),
+('Веб-розробка', 'Поглиблений курс з розробки веб-сайтів', '2025-03-05', '2025-04-15'),
+('Машинне навчання', 'Вступ до алгоритмів і моделей машинного навчання', '2025-04-20', '2025-05-30');
+
+-- Заповнення таблиці "Слухачі"
+INSERT INTO Students (FirstName, LastName, Email, PhoneNumber)
+VALUES
+('Іван', 'Петренко', 'ivan.petrenko@example.com', '+380631234567'),
+('Олена', 'Шевченко', 'olena.shevchenko@example.com', '+380671234568'),
+('Олег', 'Коваленко', 'oleh.kovalenko@example.com', '+380931234569');
+
+-- Заповнення таблиці "Інструктори"
+INSERT INTO Instructors (FirstName, LastName, Email, Expertise)
+VALUES
+('Марія', 'Гриценко', 'mariya.grytsenko@example.com', 'Програмування'),
+('Дмитро', 'Сидоренко', 'dmytro.sydorenko@example.com', 'Веб-розробка'),
+('Катерина', 'Іванова', 'kateryna.ivanova@example.com', 'Машинне навчання');
+
+-- Заповнення таблиці "Курси-Слухачі"
+INSERT INTO CourseStudent (CourseID, StudentID, EnrollmentDate)
+VALUES
+(1, 1, '2025-01-20'),
+(1, 2, '2025-01-21'),
+(2, 3, '2025-02-15'),
+(3, 1, '2025-04-01'),
+(3, 2, '2025-04-05');
+
+-- Заповнення таблиці "Курси-Інструктори"
+INSERT INTO CourseInstructor (CourseID, InstructorID, AssignmentDate)
+VALUES
+(1, 1, '2025-01-10'),
+(2, 2, '2025-02-25'),
+(3, 3, '2025-03-30');
